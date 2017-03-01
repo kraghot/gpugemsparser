@@ -39,7 +39,9 @@ def parsePage(url):
 	soup = BeautifulSoup(content, 'html.parser')
 
 	body = soup.find(id="center")
-	f.write(str(body.hr))
+	
+	#[4:-5] removes the <hr> tags
+	f.write(str(body.hr)[4:-5])
 
 	images = body.hr.find_all("img")
 	scrapeImages(images)
